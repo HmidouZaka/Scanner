@@ -31,6 +31,9 @@ import com.projectbyzakaria.scanner.ui.theme.ScannerTheme
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
+    onClickSelectImage:()->Unit,
+    onClickScanner:()->Unit,
+    onclickAnalise:()->Unit,
 ) {
 
     var isAddDialogVisible by rememberSaveable {
@@ -70,10 +73,14 @@ fun HomeScreen(
 
 
             ,
-        isVisible = { isAddDialogVisible }
-    ) {
-        isAddDialogVisible = false
-    }
+        isVisible = { isAddDialogVisible },
+        onclickAnalise = onclickAnalise,
+        onClickScanner = onClickScanner,
+        onClickSelectImage = onClickSelectImage,
+        onDismiss =  {
+            isAddDialogVisible = false
+        }
+    )
 
 }
 
@@ -82,6 +89,6 @@ fun HomeScreen(
 @Composable
 fun HomeScreenPreview() {
     ScannerTheme {
-        HomeScreen(Modifier.fillMaxSize())
+        HomeScreen(Modifier.fillMaxSize(),{},{},{})
     }
 }

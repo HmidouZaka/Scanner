@@ -39,18 +39,30 @@ fun SelectDialog(
     modifier: Modifier = Modifier,
     isVisible: () -> Boolean,
     onDismiss: () -> Unit,
+    onClickSelectImage: () -> Unit,
+    onClickScanner: () -> Unit,
+    onclickAnalise: () -> Unit,
 ) {
 
     if (isVisible()) {
         Dialog(onDismissRequest = onDismiss) {
-            DialogContent(modifier = modifier.padding(top = 14.dp))
+            DialogContent(
+                modifier = modifier.padding(top = 14.dp),
+                onClickSelectImage = onClickSelectImage,
+                onClickScanner = onClickScanner,
+                onclickAnalise = onclickAnalise
+            )
         }
     }
 
 }
 
 @Composable
-fun DialogContent(modifier: Modifier) {
+fun DialogContent(
+    modifier: Modifier, onClickSelectImage: () -> Unit,
+    onClickScanner: () -> Unit,
+    onclickAnalise: () -> Unit,
+) {
 
     val context = LocalContext.current
     Column(
@@ -69,9 +81,13 @@ fun DialogContent(modifier: Modifier) {
 
 
         Image(
-            painter = rememberImagePainter(data = R.drawable.animation_llmobdls_small , imageLoader = imageLoader),
+            painter = rememberImagePainter(
+                data = R.drawable.animation_llmobdls_small,
+                imageLoader = imageLoader
+            ),
             contentDescription = "",
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
                 .heightIn(max = 300.dp),
             contentScale = ContentScale.Crop
         )
@@ -79,7 +95,7 @@ fun DialogContent(modifier: Modifier) {
 
 
         ElevatedButton(
-            onClick = { },
+            onClick = { onClickSelectImage()},
             modifier = Modifier
                 .padding(8.dp)
                 .fillMaxWidth(),
@@ -103,7 +119,7 @@ fun DialogContent(modifier: Modifier) {
 
 
         ElevatedButton(
-            onClick = { },
+            onClick = { onClickScanner() },
             modifier = Modifier
                 .padding(8.dp)
                 .fillMaxWidth(),
@@ -127,7 +143,7 @@ fun DialogContent(modifier: Modifier) {
 
 
         ElevatedButton(
-            onClick = { },
+            onClick = { onclickAnalise() },
             modifier = Modifier
                 .padding(8.dp)
                 .fillMaxWidth(),
@@ -157,7 +173,10 @@ fun DialogContent(modifier: Modifier) {
 fun ShowSelectDialog() {
     ScannerTheme {
         DialogContent(
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            {},
+            {},
+            {}
         )
     }
 

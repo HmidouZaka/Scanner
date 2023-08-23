@@ -16,6 +16,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.projectbyzakaria.scanner.ui.presentassions.MainViewModel
 import com.projectbyzakaria.scanner.ui.screens.HomeScreen
+import com.projectbyzakaria.scanner.ui.screens.ScannerScreen
 import com.projectbyzakaria.scanner.ui.theme.ScannerTheme
 import com.projectbyzakaria.scanner.utils.Screens
 
@@ -32,19 +33,32 @@ class MainActivity : ComponentActivity() {
                     navController = navController,
                     startDestination = Screens.Home.name
                 ) {
-                    composable(route = Screens.Home.name){
-                        HomeScreen(Modifier.fillMaxSize())
+                    composable(route = Screens.Home.name) {
+                        HomeScreen(
+                            modifier = Modifier.fillMaxSize(),
+                            onClickSelectImage = {
+                                navController.navigate(Screens.ImageScanner.name)
+                            },
+                            onClickScanner = {
+                                navController.navigate(Screens.Scanner.name)
+                            },
+                            onclickAnalise = {
+                                navController.navigate(Screens.ImageInfo.name)
+                            }
+                        )
                     }
-                    composable(route = Screens.Details.name){
+                    composable(route = Screens.Details.name) {
 
                     }
-                    composable(route = Screens.Scanner.name){
+                    composable(route = Screens.Scanner.name) {
+                        ScannerScreen(modifier = Modifier.fillMaxSize()) {
+                            navController.popBackStack()
+                        }
+                    }
+                    composable(route = Screens.ImageInfo.name) {
 
                     }
-                    composable(route = Screens.ImageInfo.name){
-
-                    }
-                    composable(route = Screens.ImageScanner.name){
+                    composable(route = Screens.ImageScanner.name) {
 
                     }
                 }
