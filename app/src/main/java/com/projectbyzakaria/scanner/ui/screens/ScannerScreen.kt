@@ -29,6 +29,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import com.projectbyzakaria.scanner.analyzer.scanner.QrCodeAnalyzer
@@ -56,7 +58,7 @@ fun ScannerScreen(
         }
     ) {
         var result by rememberSaveable {
-            mutableStateOf("")
+            mutableStateOf("kjkj")
         }
 
         val context = LocalContext.current
@@ -71,7 +73,7 @@ fun ScannerScreen(
 
         if (isAllow){
             Column(
-                modifier = Modifier.padding(it)
+                modifier = Modifier.padding(it).fillMaxSize()
             ) {
                 AndroidView(factory = {context->
                     val previewView  = PreviewView(context)
@@ -79,6 +81,7 @@ fun ScannerScreen(
                     val selectore = CameraSelector.Builder()
                         .requireLensFacing(CameraSelector.LENS_FACING_BACK)
                         .build()
+
                     preview.setSurfaceProvider(previewView.surfaceProvider)
                     val imageAnalysis = ImageAnalysis.Builder()
                         .setTargetResolution(Size(previewView.width,previewView.height))
@@ -100,9 +103,11 @@ fun ScannerScreen(
                         ex.printStackTrace()
                     }
                     previewView
-                }, modifier = Modifier.fillMaxSize()){
+                }, modifier = Modifier.weight(1f)){
 
                 }
+
+                Text(text = result, fontSize = 30.sp, modifier = Modifier.padding(20.dp))
             }
         }
     }

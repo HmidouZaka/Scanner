@@ -1,5 +1,7 @@
 package com.projectbyzakaria.scanner
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -24,6 +26,7 @@ class MainActivity : ComponentActivity() {
 
     val viewModel by viewModels<MainViewModel>()
 
+    var isCameraPermissionAllowed = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -44,7 +47,8 @@ class MainActivity : ComponentActivity() {
                             },
                             onclickAnalise = {
                                 navController.navigate(Screens.ImageInfo.name)
-                            }
+                            },
+                            checkCameraPermissionIsGranted = ::checkCameraPermissionIsGranted
                         )
                     }
                     composable(route = Screens.Details.name) {
@@ -63,6 +67,21 @@ class MainActivity : ComponentActivity() {
                     }
                 }
             }
+        }
+    }
+
+
+    private fun checkCameraPermissionIsGranted(): Boolean {
+        if (isCameraPermissionAllowed){
+            return true
+        }else{
+            val checkCameraPermissionIsGranted =
+                    androidx.core.content.ContextCompat.checkSelfPermission(
+                        this,
+                        Manifest.permission.CAMERA
+                    ) == PackageManager.PERMISSION_GRANTED
+            isCameraPermissionAllowed = checkCameraPermissionIsGranted
+            return checkCameraPermissionIsGranted
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.projectbyzakaria.scanner.analyzer.scanner
 
 import android.graphics.ImageFormat
+import android.util.Log
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
 import com.google.zxing.BarcodeFormat
@@ -22,6 +23,7 @@ class QrCodeAnalyzer(
     )
 
     override fun analyze(image: ImageProxy) {
+        Log.e("ssssssssssssssssssssss", "analyze: ${image.planes.firstOrNull()?.pixelStride}")
         if (image.format in supportedImageFormat){
             val bytes = image.planes.first().buffer.toByteArray()
             val source = PlanarYUVLuminanceSource(
@@ -34,6 +36,7 @@ class QrCodeAnalyzer(
                 false
             )
             val binary = BinaryBitmap(HybridBinarizer(source))
+
             try {
                 val result = MultiFormatReader().apply {
                     setHints(
@@ -41,8 +44,9 @@ class QrCodeAnalyzer(
                     )
                 }.decode(binary)
                 onScan(result.text)
+                Log.e("ggggggggggggggggggggg", "analyze: ${result.text}")
             }catch (ex:Exception){
-
+                Log.e("ssssssssssssssssssssss", "analyze: ${ex.message}")
             }finally {
                 image.close()
             }
@@ -54,9 +58,8 @@ class QrCodeAnalyzer(
 
     private fun ByteBuffer.toByteArray():ByteArray{
         rewind()
-        val byteArray = ByteArray(this.remaining()).also {
+        return ByteArray(this.remaining()).also {
             get(it)
         }
-        return byteArray
     }
 }
