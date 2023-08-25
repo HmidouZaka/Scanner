@@ -23,7 +23,6 @@ class QrCodeAnalyzer(
     )
 
     override fun analyze(image: ImageProxy) {
-        Log.e("ssssssssssssssssssssss", "analyze: ${image.planes.firstOrNull()?.pixelStride}")
         if (image.format in supportedImageFormat){
             val bytes = image.planes[0].buffer.toByteArray()
             val source = PlanarYUVLuminanceSource(
@@ -43,11 +42,9 @@ class QrCodeAnalyzer(
             }
             try {
                 val finally = result.decode(binary)
-                Log.e("ggggggggggggggggggggg", "analyze: ${finally.text}")
                 onScan(finally.text)
 
             }catch (ex:Exception){
-                Log.e("ssssssssssssssssssssss", "analyze: ${ex.message}")
             }finally {
                 image.close()
             }
