@@ -25,7 +25,7 @@ class QrCodeAnalyzer(
     override fun analyze(image: ImageProxy) {
         Log.e("ssssssssssssssssssssss", "analyze: ${image.planes.firstOrNull()?.pixelStride}")
         if (image.format in supportedImageFormat){
-            val bytes = image.planes.first().buffer.toByteArray()
+            val bytes = image.planes[0].buffer.toByteArray()
             val source = PlanarYUVLuminanceSource(
                  bytes,
                 image.width,
@@ -36,15 +36,16 @@ class QrCodeAnalyzer(
                 false
             )
             val binary = BinaryBitmap(HybridBinarizer(source))
-
+            val result = MultiFormatReader().apply {
+                setHints(
+                    mapOf(DecodeHintType.POSSIBLE_FORMATS to arrayListOf(BarcodeFormat.QR_CODE,BarcodeFormat.CODABAR))
+                )
+            }
             try {
-                val result = MultiFormatReader().apply {
-                    setHints(
-                        mapOf(DecodeHintType.POSSIBLE_FORMATS to arrayListOf(BarcodeFormat.QR_CODE))
-                    )
-                }.decode(binary)
-                onScan(result.text)
-                Log.e("ggggggggggggggggggggg", "analyze: ${result.text}")
+                val finally = result.decode(binary)
+                Log.e("ggggggggggggggggggggg", "analyze: ${finally.text}")
+                onScan(finally.text)
+
             }catch (ex:Exception){
                 Log.e("ssssssssssssssssssssss", "analyze: ${ex.message}")
             }finally {
@@ -58,8 +59,8 @@ class QrCodeAnalyzer(
 
     private fun ByteBuffer.toByteArray():ByteArray{
         rewind()
-        return ByteArray(this.remaining()).also {
-            get(it)
-        }
+        val data = ByteArray(this.remaining())
+        get(data)
+        return data
     }
 }
