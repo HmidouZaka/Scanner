@@ -9,11 +9,13 @@ import com.google.zxing.BinaryBitmap
 import com.google.zxing.DecodeHintType
 import com.google.zxing.MultiFormatReader
 import com.google.zxing.PlanarYUVLuminanceSource
+import com.google.zxing.ResultPoint
 import com.google.zxing.common.HybridBinarizer
 import java.nio.ByteBuffer
 
 class QrCodeAnalyzer(
-    private val onScan:(String)->Unit
+    private val onScan:(String)->Unit,
+    private val detectPaint:(Float,Float)->Unit
 ) : ImageAnalysis.Analyzer {
 
     private val supportedImageFormat = listOf(
@@ -42,9 +44,16 @@ class QrCodeAnalyzer(
             }
             try {
                 val finally = result.decode(binary)
-                onScan(finally.text)
+                val qrCodePoints: Array<ResultPoint> = finally.resultPoints
+                for (point in qrCodePoints) {
+                    val x = point.x
+                    val y = point.y
+                    Log.d("ssssssssssssssssssss", "QR Code Corner - X: $x, Y: $y")
+                    detectPaint(x,y)
+                }
 
             }catch (ex:Exception){
+                detectPaint(0f,0f)
             }finally {
                 image.close()
             }

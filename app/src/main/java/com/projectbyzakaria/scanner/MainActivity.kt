@@ -18,10 +18,14 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.projectbyzakaria.scanner.ui.presentassions.MainViewModel
 import com.projectbyzakaria.scanner.ui.screens.HomeScreen
+import com.projectbyzakaria.scanner.ui.screens.ImageScannerScreen
 import com.projectbyzakaria.scanner.ui.screens.ScannerScreen
 import com.projectbyzakaria.scanner.ui.theme.ScannerTheme
 import com.projectbyzakaria.scanner.utils.Screens
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     val viewModel by viewModels<MainViewModel>()
@@ -63,7 +67,11 @@ class MainActivity : ComponentActivity() {
 
                     }
                     composable(route = Screens.ImageScanner.name) {
-
+                        ImageScannerScreen(
+                            modifier = Modifier.fillMaxSize()
+                        ){
+                            navController.popBackStack()
+                        }
                     }
                 }
             }
