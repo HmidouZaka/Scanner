@@ -11,9 +11,7 @@ data class ScannerEntity(
     @ColumnInfo(name = "name")
     val name : String,
     @ColumnInfo(name = "image")
-    val image: Bitmap,
-    @ColumnInfo(name = "content")
-    val content : String
+    val image: Bitmap
 ){
     @PrimaryKey(true)
     var id:Int = 1

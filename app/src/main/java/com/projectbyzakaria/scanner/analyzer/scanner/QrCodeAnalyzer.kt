@@ -1,6 +1,11 @@
 package com.projectbyzakaria.scanner.analyzer.scanner
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.ImageFormat
+import android.graphics.Rect
+import android.graphics.YuvImage
+import android.media.Image
 import android.util.Log
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
@@ -13,18 +18,20 @@ import com.google.zxing.ResultPoint
 import com.google.zxing.common.HybridBinarizer
 import java.nio.ByteBuffer
 
+
 class QrCodeAnalyzer(
-    private val onScan:(String)->Unit,
-    private val detectPaint:(Float,Float)->Unit
+    private val onScan: (String) -> Unit,
+    private val detectPaint: (Float, Float) -> Unit,
 ) : ImageAnalysis.Analyzer {
 
+    var isFindQRCode = false
     private val supportedImageFormat = listOf(
         ImageFormat.YUV_420_888,
         ImageFormat.YUV_422_888,
         ImageFormat.YUV_444_888,
     )
-
-    override fun analyze(image: ImageProxy) {
+    @androidx.annotation.OptIn(androidx.camera.core.ExperimentalGetImage::class)
+    override fun  analyze(image: ImageProxy) {
         if (image.format in supportedImageFormat){
             val bytes = image.planes[0].buffer.toByteArray()
             val source = PlanarYUVLuminanceSource(
@@ -52,8 +59,16 @@ class QrCodeAnalyzer(
                     detectPaint(x,y)
                 }
 
+                if (image.format ==   ImageFormat.YUV_420_888) {
+                    if (!isFindQRCode) {
+                            onScan(finally.text)
+                            isFindQRCode = true
+                    }
+                }
+
             }catch (ex:Exception){
                 detectPaint(0f,0f)
+                Log.d("gggggggggggggggggg", "analyze: ${ex.message}")
             }finally {
                 image.close()
             }
@@ -69,4 +84,7 @@ class QrCodeAnalyzer(
         get(data)
         return data
     }
+
+
+
 }
