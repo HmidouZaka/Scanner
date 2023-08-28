@@ -71,7 +71,7 @@ fun QrCard(
             }
             Text(
                 text = item.text,
-                textAlign = TextAlign.Center,
+                textAlign = TextAlign.Start,
                 maxLines = if (showAllText) 6 else 1,
                 fontSize = 20.sp,
                 modifier = Modifier

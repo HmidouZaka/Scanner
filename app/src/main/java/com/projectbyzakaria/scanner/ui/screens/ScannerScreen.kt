@@ -309,6 +309,7 @@ fun ScannerScreen(
                             ) {
                                 Button(
                                     onClick = {
+                                        viewModel.retry()
                                         scannerUiStates.data?.let { it1 ->
                                             viewModel.insertScanner(
                                                 it1

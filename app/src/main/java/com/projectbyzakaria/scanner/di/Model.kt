@@ -22,7 +22,9 @@ object Model {
             context = context,
             klass = DataBase::class.java,
             name = "scanner_db.db"
-        ).build()
+        )
+            .fallbackToDestructiveMigration()
+            .build()
     }
 
 

@@ -21,6 +21,6 @@ interface ScannerDao {
     suspend fun deleteScanner(scannerEntity: ScannerEntity)
     
 
-    @Query("SELECT * FROM scanner")
+    @Query("SELECT * FROM scanner ORDER BY id DESC")
     fun getListOfScanner() : Flow<List<ScannerEntity>>
 }
