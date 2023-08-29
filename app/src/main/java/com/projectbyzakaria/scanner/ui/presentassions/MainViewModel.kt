@@ -1,6 +1,7 @@
 package com.projectbyzakaria.scanner.ui.presentassions
 
 
+import android.graphics.Bitmap
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.projectbyzakaria.scanner.analyzer.scanner.Generator
@@ -45,7 +46,7 @@ class MainViewModel @Inject constructor(
             if (bitmapImage == null) {
                 _scanningState.emit(ScanResult.Error("generating is field pleas try again"))
             } else {
-                _scanningState.emit(ScanResult.Success(ScanningResult(text, bitmapImage)))
+                _scanningState.emit(ScanResult.Success(ScanningResult(text, bitmapImage,0)))
             }
         }
     }
@@ -66,7 +67,7 @@ class MainViewModel @Inject constructor(
     }
     fun deleteScanner(scanner:ScanningResult){
         viewModelScope.launch(Dispatchers.Main) {
-            repository.delete(scanner)
+            repository.delete(scanner.id)
         }
     }
 
@@ -78,5 +79,34 @@ class MainViewModel @Inject constructor(
         }
     }
 
+
+
+    private val _textGenerator = MutableStateFlow<String>("")
+    val textGenerator = _textGenerator.asStateFlow()
+
+    private val _resultImage = MutableStateFlow<Bitmap?>(null)
+    val resultImage = _resultImage.asStateFlow()
+
+
+    fun setTextGenerator(text:String){
+        viewModelScope.launch {
+            _textGenerator.emit(text)
+            if (text.isEmpty()){
+                _resultImage.emit(null)
+            }else{
+                val generator = Generator(text)
+                val image = generator.generate()
+                _resultImage.emit(image)
+            }
+        }
+    }
+
+
+    fun reset(){
+        viewModelScope.launch {
+            _resultImage.emit(null)
+            _textGenerator.emit("")
+        }
+    }
 
 }

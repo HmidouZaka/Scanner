@@ -6,6 +6,7 @@ import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.WriterException
 import com.google.zxing.common.BitMatrix
+import com.journeyapps.barcodescanner.BarcodeEncoder
 
 class Generator (val target:String) {
 
@@ -13,15 +14,9 @@ class Generator (val target:String) {
     fun generate(width:Int = 1000,height:Int = 1000): Bitmap?{
         val multiFormatWriter = MultiFormatWriter()
         try {
-            val bitMatrix: BitMatrix = multiFormatWriter.encode(target, BarcodeFormat.QR_CODE, width, height)
-
-            // Convert the BitMatrix to a Bitmap
-            val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
-            for (x in 0 until width) {
-                for (y in 0 until height) {
-                    bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
-                }
-            }
+            val bitMatrix = multiFormatWriter.encode(target, BarcodeFormat.QR_CODE,width,height);
+            val barcodeEncoder =  BarcodeEncoder();
+            val bitmap = barcodeEncoder.createBitmap(bitMatrix);
             return bitmap
         } catch (e: WriterException) {
             e.printStackTrace()

@@ -17,8 +17,8 @@ interface ScannerDao {
     suspend fun insertScanner(scannerEntity: ScannerEntity)
 
 
-    @Delete
-    suspend fun deleteScanner(scannerEntity: ScannerEntity)
+    @Query("DELETE FROM scanner WHERE id =:id")
+    suspend fun deleteScanner(id:Int)
     
 
     @Query("SELECT * FROM scanner ORDER BY id DESC")

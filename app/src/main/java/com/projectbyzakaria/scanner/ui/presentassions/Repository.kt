@@ -15,8 +15,8 @@ class Repository @Inject constructor(
         dao.insertScanner(scanningResult.toEntity())
     }
 
-    suspend fun delete(scanningResult: ScanningResult){
-        dao.deleteScanner(scanningResult.toEntity())
+    suspend fun delete(id: Int){
+        dao.deleteScanner(id)
     }
 
 
@@ -26,7 +26,7 @@ class Repository @Inject constructor(
         return ScannerEntity(text,image)
     }
     private fun ScannerEntity.toScannerResultModel():ScanningResult{
-        return ScanningResult(name,image)
+        return ScanningResult(name,image,this.id)
     }
 
 }

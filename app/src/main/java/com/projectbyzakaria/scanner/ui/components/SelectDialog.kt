@@ -41,6 +41,7 @@ fun SelectDialog(
     onDismiss: () -> Unit,
     onClickSelectImage: () -> Unit,
     onClickScanner: () -> Unit,
+    onClickGenerate: () -> Unit,
     onclickAnalise: () -> Unit,
 ) {
 
@@ -50,7 +51,8 @@ fun SelectDialog(
                 modifier = modifier.padding(top = 14.dp),
                 onClickSelectImage = onClickSelectImage,
                 onClickScanner = onClickScanner,
-                onclickAnalise = onclickAnalise
+                onclickAnalise = onclickAnalise,
+                onClickGenerate = onClickGenerate
             )
         }
     }
@@ -62,6 +64,7 @@ fun DialogContent(
     modifier: Modifier, onClickSelectImage: () -> Unit,
     onClickScanner: () -> Unit,
     onclickAnalise: () -> Unit,
+    onClickGenerate: () -> Unit,
 ) {
 
     val context = LocalContext.current
@@ -164,20 +167,30 @@ fun DialogContent(
             )
         }
 
+
+
+        ElevatedButton(
+            onClick = { onClickGenerate ()},
+            modifier = Modifier
+                .padding(8.dp)
+                .fillMaxWidth(),
+            shape = RoundedCornerShape(8.dp)
+        ) {
+            Icon(
+                painter = painterResource(id = R.drawable.scan_text),
+                contentDescription = "Generate QR Code",
+                modifier = Modifier
+                    .padding(8.dp)
+                    .size(24.dp),
+                tint = MaterialTheme.colorScheme.primary
+            )
+            Text(
+                text = "Generate QR Code",
+                fontSize = 20.sp,
+                fontWeight = FontWeight.W500
+            )
+        }
     }
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun ShowSelectDialog() {
-    ScannerTheme {
-        DialogContent(
-            modifier = Modifier.fillMaxWidth(),
-            {},
-            {},
-            {}
-        )
-    }
-
-}

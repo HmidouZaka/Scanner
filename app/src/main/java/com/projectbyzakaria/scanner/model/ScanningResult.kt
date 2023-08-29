@@ -4,5 +4,6 @@ import android.graphics.Bitmap
 
 data class ScanningResult (
     val text:String,
-    val image:Bitmap
+    val image:Bitmap,
+    var id:Int
 )

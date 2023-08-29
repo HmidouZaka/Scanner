@@ -9,6 +9,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -33,6 +34,7 @@ import com.projectbyzakaria.scanner.ui.screens.Details
 import com.projectbyzakaria.scanner.ui.screens.HomeScreen
 import com.projectbyzakaria.scanner.ui.screens.ImageScannerScreen
 import com.projectbyzakaria.scanner.ui.screens.ScannerScreen
+import com.projectbyzakaria.scanner.ui.screens.TextToQRCodeScreen
 import com.projectbyzakaria.scanner.ui.theme.ScannerTheme
 import com.projectbyzakaria.scanner.utils.ScanResult
 import com.projectbyzakaria.scanner.utils.Screens
@@ -70,32 +72,35 @@ class MainActivity : ComponentActivity() {
                             viewModel = viewModel,
                             onClickSelectItem = { index ->
                                 navController.navigate(Screens.Details.name + "/$index")
+                            },
+                            onClickGenerate = {
+                                navController.navigate(Screens.TextToQr.name)
                             }
                         )
                     }
                     composable(
                         route = Screens.Details.name + "/{index}",
                         arguments = listOf(
-                            navArgument("index"){
+                            navArgument("index") {
                                 this.type = NavType.IntType
                                 this.defaultValue = -1
                             }
                         )
                     ) {
                         val index = it.arguments?.getInt("index") ?: -1
-                        if (index != -1){
+                        if (index != -1) {
                             val state by viewModel.itemScanner.collectAsState()
-                            LaunchedEffect(key1 = true ){
+                            LaunchedEffect(key1 = true) {
                                 viewModel.findItem(index)
                             }
 
-                            if (state is ScanResult.Success){
+                            if (state is ScanResult.Success) {
                                 state.data?.let { it1 ->
-                                    Details(item = it1, viewModel = viewModel ) {
+                                    Details(item = it1, viewModel = viewModel) {
                                         navController.popBackStack()
                                     }
                                 }
-                            }else{
+                            } else {
                                 Box(
                                     Modifier.fillMaxSize(),
                                     contentAlignment = Alignment.Center
@@ -115,9 +120,17 @@ class MainActivity : ComponentActivity() {
                     composable(route = Screens.ImageInfo.name) {
 
                     }
+                    composable(route = Screens.TextToQr.name) {
+                        TextToQRCodeScreen(
+                            modifier = Modifier.fillMaxSize(),
+                            onClickBack = { navController.popBackStack() },
+                            viewModel = viewModel,
+                        )
+                    }
                     composable(route = Screens.ImageScanner.name) {
                         ImageScannerScreen(
-                            modifier = Modifier.fillMaxSize()
+                            modifier = Modifier.fillMaxSize(),
+                            viewModel = viewModel
                         ) {
                             navController.popBackStack()
                         }

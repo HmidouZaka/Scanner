@@ -63,6 +63,7 @@ fun HomeScreen(
     onClickSelectItem: (Int) -> Unit,
     onClickScanner: () -> Unit,
     onclickAnalise: () -> Unit,
+    onClickGenerate: () -> Unit,
     checkCameraPermissionIsGranted: () -> Boolean = { false },
 ) {
 
@@ -136,13 +137,13 @@ fun HomeScreen(
                     modifier = Modifier.fillMaxSize(),
                     contentPadding = PaddingValues(8.dp),
                     verticalArrangement = Arrangement.spacedBy(4.dp)
-                ){
-                    itemsIndexed(scanners){index,item->
+                ) {
+                    itemsIndexed(scanners) { index, item ->
                         QrCard(
                             item = item,
                             modifier = Modifier.fillMaxWidth(),
                             context = context
-                            ) {
+                        ) {
                             onClickSelectItem(index)
                         }
                     }
@@ -159,14 +160,24 @@ fun HomeScreen(
             .clip(RoundedCornerShape(8.dp))
             .background(MaterialTheme.colorScheme.background),
         isVisible = { isAddDialogVisible },
-        onclickAnalise = onclickAnalise,
+        onclickAnalise = {
+            isAddDialogVisible = false;
+            onclickAnalise()
+        },
         onClickScanner = {
             isAddDialogVisible = false
             onClickScanner()
         },
-        onClickSelectImage = onClickSelectImage,
+        onClickSelectImage = {
+            isAddDialogVisible = false;
+            onClickSelectImage()
+        },
         onDismiss = {
             isAddDialogVisible = false
+        },
+        onClickGenerate = {
+            isAddDialogVisible = false
+            onClickGenerate()
         }
     )
 
