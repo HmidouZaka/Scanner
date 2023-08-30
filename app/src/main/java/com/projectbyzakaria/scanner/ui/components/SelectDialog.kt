@@ -42,7 +42,6 @@ fun SelectDialog(
     onClickSelectImage: () -> Unit,
     onClickScanner: () -> Unit,
     onClickGenerate: () -> Unit,
-    onclickAnalise: () -> Unit,
 ) {
 
     if (isVisible()) {
@@ -51,7 +50,6 @@ fun SelectDialog(
                 modifier = modifier.padding(top = 14.dp),
                 onClickSelectImage = onClickSelectImage,
                 onClickScanner = onClickScanner,
-                onclickAnalise = onclickAnalise,
                 onClickGenerate = onClickGenerate
             )
         }
@@ -63,7 +61,6 @@ fun SelectDialog(
 fun DialogContent(
     modifier: Modifier, onClickSelectImage: () -> Unit,
     onClickScanner: () -> Unit,
-    onclickAnalise: () -> Unit,
     onClickGenerate: () -> Unit,
 ) {
 
@@ -139,29 +136,6 @@ fun DialogContent(
             )
             Text(
                 text = "Scan QR Code",
-                fontSize = 20.sp,
-                fontWeight = FontWeight.W500
-            )
-        }
-
-
-        ElevatedButton(
-            onClick = { onclickAnalise() },
-            modifier = Modifier
-                .padding(8.dp)
-                .fillMaxWidth(),
-            shape = RoundedCornerShape(8.dp)
-        ) {
-            Icon(
-                painter = painterResource(id = R.drawable.scun_image_icon),
-                contentDescription = "Analise Image",
-                modifier = Modifier
-                    .padding(8.dp)
-                    .size(24.dp),
-                tint = MaterialTheme.colorScheme.primary
-            )
-            Text(
-                text = "Analise Image",
                 fontSize = 20.sp,
                 fontWeight = FontWeight.W500
             )

@@ -62,7 +62,6 @@ fun HomeScreen(
     onClickSelectImage: () -> Unit,
     onClickSelectItem: (Int) -> Unit,
     onClickScanner: () -> Unit,
-    onclickAnalise: () -> Unit,
     onClickGenerate: () -> Unit,
     checkCameraPermissionIsGranted: () -> Boolean = { false },
 ) {
@@ -160,10 +159,6 @@ fun HomeScreen(
             .clip(RoundedCornerShape(8.dp))
             .background(MaterialTheme.colorScheme.background),
         isVisible = { isAddDialogVisible },
-        onclickAnalise = {
-            isAddDialogVisible = false;
-            onclickAnalise()
-        },
         onClickScanner = {
             isAddDialogVisible = false
             onClickScanner()

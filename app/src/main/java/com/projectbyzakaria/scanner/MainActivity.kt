@@ -65,9 +65,6 @@ class MainActivity : ComponentActivity() {
                             onClickScanner = {
                                 navController.navigate(Screens.Scanner.name)
                             },
-                            onclickAnalise = {
-                                navController.navigate(Screens.ImageInfo.name)
-                            },
                             checkCameraPermissionIsGranted = ::checkCameraPermissionIsGranted,
                             viewModel = viewModel,
                             onClickSelectItem = { index ->
@@ -116,9 +113,6 @@ class MainActivity : ComponentActivity() {
                         ScannerScreen(modifier = Modifier.fillMaxSize(), viewModel = viewModel) {
                             navController.popBackStack()
                         }
-                    }
-                    composable(route = Screens.ImageInfo.name) {
-
                     }
                     composable(route = Screens.TextToQr.name) {
                         TextToQRCodeScreen(
