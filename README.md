@@ -1,10 +1,3 @@
-![ezgif-1-eab35c881a](https://github.com/HmidouZaka/Scanner/assets/94437384/24d20c61-5f8b-4e40-948a-b77b556cf9c8)
-![ezgif-1-a66dd767ce](https://github.com/HmidouZaka/Scanner/assets/94437384/10b00acb-cfbb-4e7a-bef3-d99036bcb20f)
-![ezgif-1-8d9bc9416b](https://github.com/HmidouZaka/Scanner/assets/94437384/a736dbf5-af67-4ab8-8303-a27efd4b09dc)
-![Screenshot_2023-09-01-07-47-27-263_com projectbyzakaria scanner](https://github.com/HmidouZaka/Scanner/assets/94437384/4e458350-bd34-41b4-a0e8-129c754b9ae5)
-![Screenshot_2023-09-01-07-48-50-646_com projectbyzakaria scanner](https://github.com/HmidouZaka/Scanner/assets/94437384/0dd4633b-cbf1-4aa2-a57f-53434e6b9969)
-![Screenshot_2023-09-01-07-48-00-313_com projectbyzakaria scanner](https://github.com/HmidouZaka/Scanner/assets/94437384/81d1a5ba-528c-44b3-b307-cb46aac68700)
-
 
 [![MasterHead](https://github.com/HmidouZaka/Scanner/assets/94437384/11d2216e-55b4-4419-9271-3f54c10cef11)
 
@@ -20,17 +13,12 @@
     </p>
    <h3>Features</h3>
    <ul>
-            <li>Search Anime</li>
-            <li>Search Manga</li>
-            <li>Show top animes</li>
-            <li>Show top mangas</li>
-            <li>Anime Movies</li>
-            <li>Desplay Anime Episodes</li>
-            <li>Show Anime and manga details</li>
-            <li>Add anime or manga to favorit</li>
-            <li>offline mode</li>
-            <li>Show creator details</li>
-            <li>and more ...</li>
+            <li>Generate Qr Code From String Text</li>
+            <li>Save Qr code</li>
+            <li>Download Qr code image</li>
+            <li>Scan Qr code using CameraX</li>
+            <li>Select QR Code image And scan it</li>
+            <li>Save data in local database</li>
     </ul>
 </div>
 
@@ -58,11 +46,8 @@
         <ul>
             <li><a href="https://developer.android.com/topic/libraries/architecture/viewmodel">MVVM</a> as a design pattern.</li>
             <li><a href="https://developer.android.com/topic/architecture">Clean architecture</a> for better code and project architecture.</li>
-            <li><a href="https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview">Macrobenchmark Test</a> for testing performance in the app.</li>
-            <li><a href="https://developer.android.com/topic/performance/baselineprofiles/overview">Baseline Profiles</a> for improving performance in the app.</li>
-            <li><a href="https://m3.material.io/">Material Design</a> To incorporate aesthetically pleasing components into the app.</li>
+            <li><a href="https://m3.material.io/">Material Design 3</a> To incorporate aesthetically pleasing components into the app.</li>
             <li><a href="https://developer.android.com/jetpack/compose">Navigation Component</a> To navigate between screens in jetpack compose app.</li>
-            <li><a href="https://developer.android.com/develop/ui/views/launch/splash-screen">Splash Screen Api</a> To display a splash screen at the time of app initialization and processing</li>
             <li>And more...</li>
         </ul>
 </div>
@@ -72,7 +57,7 @@
 
  <h1>🛠️ Tools </h1>
     <p>
-               This is a simple overview of the tools I used in this project, such as Android Studio, Git, GitHub, and Postman
+               This is a simple overview of the tools I used in this project, such as Android Studio, Git, GitHub
            </p>
  <div align="center">
       <table>
