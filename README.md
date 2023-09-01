@@ -62,7 +62,6 @@
  <div align="center">
       <table>
                  <tr>
-                        
                            <td width="30%">
                                  <div align="center">
                                       <img src="https://avatars.githubusercontent.com/u/18133?s=200&v=4"   width="30%" alt="Image 1" >
@@ -111,7 +110,6 @@
                                       </p>
                                  </div>    
                          </td>
-                        
                  </tr>
          </table>
         <ul>
