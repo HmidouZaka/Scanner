@@ -62,15 +62,7 @@
  <div align="center">
       <table>
                  <tr>
-                         <td width="30%">
-                                 <div align="center">
-                                      <img src="https://pic.clubic.com/v1/images/2092986/raw"   width="30%" alt="Image 1" >
-                                      <h3><a href="https://www.postman.com/">Postman</a></h3>
-                                      <p>
-                                          I used Postman to test the API and verify if all requests are working or not 
-                                      </p>
-                                 </div>    
-                         </td>
+                        
                            <td width="30%">
                                  <div align="center">
                                       <img src="https://avatars.githubusercontent.com/u/18133?s=200&v=4"   width="30%" alt="Image 1" >
@@ -119,15 +111,7 @@
                                       </p>
                                  </div>    
                          </td>
-                             <td width="30%">
-                                 <div align="center">
-                                      <img src="https://a.fsdn.com/allura/mirror/leakcanary/icon?1688073393?&w=90"   width="30%" alt="Image 1" >
-                                         <h3><a href="https://github.com/square/leakcanary">Leak canary</a></h3>
-                                      <p>
-                                           I used this library to verify if there are any memory leaks
-                                      </p>
-                                 </div>    
-                         </td>
+                        
                  </tr>
          </table>
         <ul>
