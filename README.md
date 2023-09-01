@@ -1,5 +1,5 @@
 
-[![MasterHead](https://github.com/HmidouZaka/Scanner/assets/94437384/11d2216e-55b4-4419-9271-3f54c10cef11)]
+![MasterHead](https://github.com/HmidouZaka/Scanner/assets/94437384/11d2216e-55b4-4419-9271-3f54c10cef11)
 
 
 <div align="center">
