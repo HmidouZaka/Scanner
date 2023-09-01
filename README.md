@@ -114,7 +114,7 @@
          </table>
         <ul>
             <li>Minimum SDK level 26.</li>
-            <li>90% <a href="https://developer.android.com/jetpack/compose"> Jetpack Compose </a>  based + <a href="https://github.com/Kotlin/kotlinx.coroutines" > Coroutines </a> +  <a href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/" >Flow  </a> for asynchronous.</li>
+            <li>100% <a href="https://developer.android.com/jetpack/compose"> Jetpack Compose </a>  based + <a href="https://github.com/Kotlin/kotlinx.coroutines" > Coroutines </a>  </a> for asynchronous.</li>
             <li>Jetpack
                     <ul>
                          <li>Compose: Android’s modern toolkit for building native UI.</li>
@@ -124,11 +124,6 @@
                          <li><a href="https://developer.android.com/training/dependency-injection/hilt-android">Hilt</a>: Dependency Injection.</li>
                     </ul>
             </li>
-            <li><a href="https://github.com/skydoves/landscapist#glide">Landscapist Glide</a>, <a href="https://github.com/skydoves/landscapist#animation">animation</a>, <a href="https://github.com/skydoves/landscapist#placeholder">placeholder</a>: Jetpack Compose image loading library that fetches and displays network images with Glide, Coil, and Fresco.</li>
-            <li><a href="https://github.com/google/accompanist">accompanist</a>: A collection of extension libraries for Jetpack Compose.</li>
-            <li><a href="https://github.com/square/retrofit">Retrofit2 & OkHttp3</a>: Construct the REST APIs and paging network data.</li>
-            <li><a href="https://github.com/google/ksp">ksp</a>: Kotlin Symbol Processing API.</li>
-            <li><a href="https://developer.android.com/topic/performance/baselineprofiles/overview">Baseline Profiles</a>: To improve app performance by including a list of classes and methods specifications in your APK that can be used by Android Runtime.</li>
         </ul>
 
 
@@ -136,13 +131,6 @@
 </div>
 
 
-<h1>🏛️ Architecture</h1>
-<div>
-      <h3>Anime App follows <a href="https://developer.android.com/topic/architecture">Google's official architecture guidance</a>.</h3>  
-        <p>
-                The overall architecture is composed of two layers; UI Layer and the data layer. Each layer has dedicated components and they each have different responsibilities. The arrow means the component has a dependency on the target component following its direction.
-        </p>
-          <img src="https://github.com/HmidouZaka/Anime-Android-App/assets/94437384/a471484d-1e74-4121-baac-8d1913319d60"   width="100%" alt="Image 1" >
-</div>
+
 
 
