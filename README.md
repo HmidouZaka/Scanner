@@ -5,22 +5,19 @@
 ![Screenshot_2023-09-01-07-48-50-646_com projectbyzakaria scanner](https://github.com/HmidouZaka/Scanner/assets/94437384/0dd4633b-cbf1-4aa2-a57f-53434e6b9969)
 ![Screenshot_2023-09-01-07-48-00-313_com projectbyzakaria scanner](https://github.com/HmidouZaka/Scanner/assets/94437384/81d1a5ba-528c-44b3-b307-cb46aac68700)
 
-![Colorful Minimalist Social Media Banner (1)](https://github.com/HmidouZaka/Scanner/assets/94437384/11d2216e-55b4-4419-9271-3f54c10cef11)
 
 [![MasterHead](https://github.com/HmidouZaka/Scanner/assets/94437384/11d2216e-55b4-4419-9271-3f54c10cef11)
 
 
 <div align="center">
-        <h1 >👋 Native Android Anime App </h1>
+        <h1 >👋 Native Android Scanner App </h1>
 </div>
 
 <div>
     <h3>🧐 Description</h3>
     <p>
-    This is a native Android app designed to showcase anime content. It was built using Android Studio and the Kotlin programming language. In the app's user interface (UI) layer, Jetpack Compose and XML are employed. In the data layer, Room is utilized for local database management, and Retrofit is used for remote database interactions.
-The primary purpose of this app is to display information about anime and manga, including detailed descriptions. Developing this project was an enjoyable endeavor, and it took approximately 40 days to complete.
-To ensure optimal performance, benchmarking was employed to test the app's efficiency. Additionally, a baseline profiler was utilized to enhance performance metrics, such as startup time and navigation frame rates.
-            </p>
+            This app is designed to offer a versatile QR code utility for Android users. It utilizes the zxing library to seamlessly scan QR codes using the device's camera. Additionally, it allows users to select QR code images from their gallery for processing. Developed using native Android Studio and written in the Kotlin programming language, this app provides a comprehensive solution for QR code management. 
+    </p>
    <h3>Features</h3>
    <ul>
             <li>Search Anime</li>
@@ -42,25 +39,18 @@ To ensure optimal performance, benchmarking was employed to test the app's effic
 <div>
         <h1 >😎 Preview</h1>
         <p align="center">
-          <img src="https://firebasestorage.googleapis.com/v0/b/android-dev-4c204.appspot.com/o/images%2F17992453-5393-40e3-b395-3697fcc49335.jpg?alt=media&token=77cd261d-7589-4006-a4a7-1f82008223b6" width="24%" alt="Image 1">
-          <img src="https://firebasestorage.googleapis.com/v0/b/android-dev-4c204.appspot.com/o/images%2F3160df40-bc3a-41cb-8eae-2a5bca1363e7.jpg?alt=media&token=ca914c2b-c7d6-4072-b046-198d70f2b918" width="24%" alt="Image 2">
-          <img src="https://firebasestorage.googleapis.com/v0/b/android-dev-4c204.appspot.com/o/images%2F34f1eb68-fa91-4379-8dcb-88d5abdd1dde.jpg?alt=media&token=b32e264f-056f-4e43-bab8-c74f17480adf" width="24%" alt="Image 3">
-          <img src="https://firebasestorage.googleapis.com/v0/b/android-dev-4c204.appspot.com/o/images%2F438e5394-3081-4904-98c7-cb3437343c9e.jpg?alt=media&token=dbf83dfe-1587-49a0-8b05-5de5ba7d9fe2" width="24%" alt="Image 3">
+          <img src="https://github.com/HmidouZaka/Scanner/assets/94437384/24d20c61-5f8b-4e40-948a-b77b556cf9c8" width="30%" alt="Image 1">
+          <img src="https://github.com/HmidouZaka/Scanner/assets/94437384/10b00acb-cfbb-4e7a-bef3-d99036bcb20f" width="30%" alt="Image 2">
+          <img src="https://github.com/HmidouZaka/Scanner/assets/94437384/a736dbf5-af67-4ab8-8303-a27efd4b09dc" width="30%" alt="Image 3">
         </p>
             <h1></h1>
         <p align="center">
-          <img src="https://firebasestorage.googleapis.com/v0/b/android-dev-4c204.appspot.com/o/images%2F447ca890-cc9a-4eb7-81dd-00c9a8cdf7f4.jpg?alt=media&token=dcca1fb6-d5da-4ccb-bbbe-e2e8e736ec82" width="24%" alt="Image 1">
-          <img src="https://firebasestorage.googleapis.com/v0/b/android-dev-4c204.appspot.com/o/images%2F58cdab9f-7877-4959-a16c-6c6f7fe3e2cf.jpg?alt=media&token=ffeb0268-f5a6-4c7b-a1e2-57ebbaa6c037" width="24%" alt="Image 2">
-          <img src="https://firebasestorage.googleapis.com/v0/b/android-dev-4c204.appspot.com/o/images%2F98adbf80-1b7a-4753-9e63-94b183e7b8e0.jpg?alt=media&token=5ede6d4f-44df-43ea-8bd6-b1f4853e5d7a" width="24%" alt="Image 3">
-          <img src="https://firebasestorage.googleapis.com/v0/b/android-dev-4c204.appspot.com/o/images%2F9ff10877-8343-48f9-b6dc-3fb0bc53bf4c.jpg?alt=media&token=606beafd-8cef-48fc-bff0-68521aebe7c1" width="24%" alt="Image 3">
+          <img src="https://github.com/HmidouZaka/Scanner/assets/94437384/4e458350-bd34-41b4-a0e8-129c754b9ae5" width="30%" alt="Image 1">
+          <img src="https://github.com/HmidouZaka/Scanner/assets/94437384/0dd4633b-cbf1-4aa2-a57f-53434e6b9969" width="30%" alt="Image 2">
+          <img src="https://github.com/HmidouZaka/Scanner/assets/94437384/81d1a5ba-528c-44b3-b307-cb46aac68700" width="30%" alt="Image 3">
         </p>
          <h1></h1>
-        <p align="center">
-          <img src="https://firebasestorage.googleapis.com/v0/b/android-dev-4c204.appspot.com/o/images%2Fdb5b48ca-5680-4f40-a571-cc9ad16a0a84.jpg?alt=media&token=0f3db252-7cb8-4e15-9ecc-885fadb86985" width="24%" alt="Image 1">
-          <img src="https://firebasestorage.googleapis.com/v0/b/android-dev-4c204.appspot.com/o/images%2Ff234f9ad-3d14-4a9d-a984-8a2f821e085b.jpg?alt=media&token=15cf6e6f-8644-4db0-9e04-c5d7db705829" width="24%" alt="Image 2">
-          <img src="https://firebasestorage.googleapis.com/v0/b/android-dev-4c204.appspot.com/o/images%2Ff4930b1b-4f57-45ef-9147-7b6b0b30605a.jpg?alt=media&token=805bcd32-7bf4-4a34-97c5-c7047e539448" width="24%" alt="Image 3">
-          <img src="https://firebasestorage.googleapis.com/v0/b/android-dev-4c204.appspot.com/o/images%2Ff89d05e4-0e27-40da-9fb3-572a382cf629.jpg?alt=media&token=10d20ecf-339d-4f17-a593-b39d78b22856" width="24%" alt="Image 3">
-        </p>
+
 </div>
 
 <div>
